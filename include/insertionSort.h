@@ -1,3 +1,3 @@
 #include <vector>
 
-void insertionSort(vector<int> &v);
+void insertionSort(std::vector<int> &v);
