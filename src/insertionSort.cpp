@@ -5,7 +5,7 @@ void insertionSort(vector<int> &v) {
     int tamanho = v.size();
     int novo, j;
 
-    for (size_t i = 1; i < tamanho-1; i++)
+    for (size_t i = 1; i < tamanho; i++)
     {
         novo = v[i];
         j = i - 1;
