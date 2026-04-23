@@ -19,14 +19,14 @@ Para a medição de desempenho, foi utilizada a biblioteca **chrono**, responsá
 A análise teórica de complexidade da busca binária e da busca sequencial aponta que no pior caso esses algoritmos possuem complexidade de O(log n) e O(n) respectivamente, enquanto ambas possuem mesma complexidade de melhor caso: O(1), pois o elemento é encontrado já na primeira verificação.
 
 #### Melhor caso:
-![Melhor Caso - Algoritmos de Busca](./assets/Figure_1.png)
+![Melhor Caso - Algoritmos de Busca](./assets/imagens/Figure_1.png)
 
 No gráfico de melhor caso, observa-se que tanto a busca binária quanto a busca sequencial apresentam tempos de execução praticamente constantes e similares, independentemente do tamanho da entrada, com poucas divergências.
 
 Essas pequenas variações não seguem um padrão de crescimento e podem ser atribuídas a fatores como overhead de execução e limitações na precisão da medição. Dessa forma, os resultados confirmam a análise teórica, segundo a qual ambos os algoritmos apresentam complexidade O(1) no melhor caso.
 
 #### Pior caso:
-![Pior Caso - Algoritmos de Busca](./assets/Figure_3.png)
+![Pior Caso - Algoritmos de Busca](./assets/imagens/Figure_3.png)
 
 Já no pior caso, observa-se um comportamento distinto entre os algoritmos. 
 
@@ -35,7 +35,7 @@ A busca sequencial apresenta um crescimento aproximadamente proporcional à medi
 Já a busca binária por outro lado apresenta tempos muitos baixos com variações pouco significativas, mantendo-se na ordem de 10⁻⁸ segundos ao longo dos diferentes tamanhos de entrada. Tal comportamento está de acordo com sua complexidade teórica de O(log n), cujo o crescimento se dá de maneira bem lenta, e que na prática pode se aproximar de uma constante dentro da faixa de valores de entrada analisada.
 
 #### Médio caso:
-![Médio Caso - Algoritmos de Busca](./assets/Figure_2.png)
+![Médio Caso - Algoritmos de Busca](./assets/imagens/Figure_2.png)
 
 No caso médio, o comportamento dos algoritmos novamente se diferem entre si. 
 
@@ -49,14 +49,14 @@ Já a busca binária, se mantém com tempos extremamente baixos e com pouca vari
 O algoritmo insertion sort possui complexidade de O(n) no seu melhor caso (vetor já ordenado) e complexidade O(n²) no seu médio e pior caso. Já o algoritmo de merge sort, possui complexidade (n log n) em qualquer caso.
 
 #### Melhor caso:
-![Melhor Caso - Algoritmos de Ordenação](./assets/Figure_4.png)
+![Melhor Caso - Algoritmos de Ordenação](./assets/imagens/Figure_4.png)
 
 No gráfico de melhor caso observa-se que o merge sort aparenta um crescimento significativo, enquanto o insertion sort aparenta tempos constantes, porém se for feito a análise dos dados nota-se que também há crescimento no insertion sort, embora muito mais suave quando comparado ao merge. Seus tempos passam de 1,72×10⁻⁵ s para 9,30×10⁻⁵ s, o que é consistente com a complexidade linear teórica de O(n). 
 
 Já o merge sort, apresenta uma taxa de crescimento compatível com a complexidade O(n log n), indo de 3,45×10⁻⁴ s para 2,01×10⁻³ s.
 
 #### Pior caso:
-![Pior Caso - Algoritmos de Ordenação](./assets/Figure_6.png)
+![Pior Caso - Algoritmos de Ordenação](./assets/imagens/Figure_6.png)
 
 No pior caso se observa o inverso do que acontece no melhor caso, pois enquanto o insertion cresce significativamente, o merge sort aparenta tempos constantes.
 
@@ -65,7 +65,7 @@ O insertion sort sai de 0,038 s em n = 5000 para 0,951 s em n = 25000, ou seja, 
 Já o merge sort continua apresentando um comportamento que está de acordo com a complexidade O(n log n).
 
 #### Médio caso:
-![Médio Caso - Algoritmos de Ordenação](./assets/Figure_5.png)
+![Médio Caso - Algoritmos de Ordenação](./assets/imagens/Figure_5.png)
 
 No caso médio, observa-se um comportamento semelhante ao pior caso para o insertion sort, ainda que com tempos menores. O algoritmo apresenta crescimento significativo com o aumento do tamanho da entrada, passando de aproximadamente 0,018 s para n = 5000 para cerca de 0,475 s para n = 25000. Esse comportamento é compatível com a complexidade O(n²), embora com menor custo constante em relação ao pior caso.
 
