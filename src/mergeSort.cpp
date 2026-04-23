@@ -22,32 +22,38 @@ void merge(vector<int> &v, vector<int> &tmp, int esquerda, int meio, int direita
         k++;
     }
 
-    while (i <= fim1)
+    while (i <= meio)
     {
         tmp[k] = v[i];
         i++;
         k++;
     }
 
-    while (j <= fim2)
+    while (j <= direita)
     {
         tmp[k] = v[j];
         j++;
         k++;
     }
 
-    for (int i = 0; i < tmp.size(); i++)
-        v[inicio1 + i] = tmp[i];
+    for (int x = esquerda; x <= direita; x++)
+        v[x] = tmp[x];
 }
 
-void mergeSort(vector<int> &v, int esquerda, int direita)
+void mergeSortAux(vector<int> &v, vector<int> &tmp, int esquerda, int direita)
 {
     if (esquerda < direita)
     {
         int meio = esquerda + (direita - esquerda) / 2;
-        
-        mergeSort(v, esquerda, meio);
-        mergeSort(v, meio + 1, direita);
-        merge(v, esquerda, meio + 1, direita);
+
+        mergeSortAux(v, tmp, esquerda, meio);
+        mergeSortAux(v, tmp, meio + 1, direita);
+        merge(v, tmp, esquerda, meio, direita);
     }
+}
+
+void mergeSort(vector<int> &v, int esquerda, int direita)
+{
+    vector<int> tmp(v.size());
+    mergeSortAux(v, tmp, esquerda, direita);
 }
