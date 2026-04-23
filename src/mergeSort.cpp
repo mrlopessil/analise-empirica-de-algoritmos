@@ -1,16 +1,13 @@
 #include "mergeSort.h"
 using namespace std;
 
-void merge(vector<int> &v, int inicio1, int inicio2, int fim2)
+void merge(vector<int> &v, vector<int> &tmp, int esquerda, int meio, int direita)
 {
-    int fim1 = inicio2 - 1;
-    int i = inicio1;
-    int j = inicio2;
+    int i = esquerda;
+    int j = meio+1;
+    int k = esquerda;
 
-    vector<int> tmp(fim2 - inicio1 + 1);
-    int k = 0;
-
-    while (i <= fim1 && j <= fim2)
+    while (i <= meio && j <= direita)
     {
         if (v[i] <= v[j])
         {
