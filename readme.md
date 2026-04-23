@@ -12,7 +12,7 @@ O estudo foi desenvolvido utilizando a linguagem de programação C++, responsá
 
 Para a obtenção dos resultados foi implementada uma função responsável por importar todos os algoritmos de busca e ordenação. Além disso, foi criado um módulo responsável pela geração de vetores de tamanho n, contendo elementos crescentes ou aleatórios.
 
-Para a medição de desempenho, foi utilizada a biblioteca **chrono**, responsável por calcular o tempo de execução de cada algoritmo. Cada execução foi realizada 50 vezes, com o objetivo de minimizar variações causadas por fatores externos. As análises foram realizadas considerando os cenários de melhor, médio e pior caso para todos os algoritmos. Ao final, foi calculada a média dos tempos obtidos, e os resultados foram gravados em um arquivo .csv, utilizado posteriormente para a geração dos gráficos.
+Para a medição de desempenho, foi utilizada a biblioteca **chrono**, responsável por calcular o tempo de execução de cada algoritmo. Cada execução foi realizada 50 vezes, com o objetivo de minimizar variações causadas por fatores externos. As análises foram realizadas considerando os cenários de melhor, médio e pior caso para todos os algoritmos. Ao final, foi calculada a média dos tempos obtidos para cada tamanho de entrada, e os resultados foram gravados em um arquivo dados.csv, utilizado posteriormente para a geração dos gráficos.
 
 ## Resultados
 ### Algoritmos de Busca
@@ -25,29 +25,29 @@ A análise teórica de complexidade da busca binária e da busca sequencial apon
 #### Melhor caso:
 ![Melhor Caso - Algoritmos de Busca](./assets/imagens/Figure_1.png)
 
-No gráfico de melhor caso, observa-se que tanto a busca binária quanto a busca sequencial apresentam tempos de execução praticamente constantes e similares, independentemente do tamanho da entrada, com poucas divergências.
+No gráfico de melhor caso, observa-se que tanto a busca binária quanto a busca sequencial apresentam tempos de execução praticamente constantes e similares, independentemente do tamanho da entrada, com poucas divergências, incluindo um possível outlier em n = 5000.
 
-Essas pequenas variações não seguem um padrão de crescimento e podem ser atribuídas a fatores como overhead de execução e limitações na precisão da medição. Dessa forma, os resultados confirmam a análise teórica, segundo a qual ambos os algoritmos apresentam complexidade O(1) no melhor caso.
+Essas variações não seguem um padrão de crescimento e podem ser atribuídas a fatores externos, como overhead de execução e limitações na precisão da medição. Observa-se no gráfico que a função O(1) se trata de uma reta constante e que ela se assemelha ao comportamento dos dois algoritmos de busca, apesar das divergências já comentadas que possivelmente são resultadas de fatores externos.  
 
 #### Pior caso:
 ![Pior Caso - Algoritmos de Busca](./assets/imagens/Figure_3.png)
 
 Já no pior caso, observa-se um comportamento distinto entre os algoritmos. 
 
-A busca sequencial apresenta um crescimento aproximadamente proporcional à medida em que a entrada cresce, passando de aproximadamente 1,7×10⁻⁵ s para n = 5000 para 3,09×10⁻⁵ s para n = 25000, confirmando a complexidade O(n). 
+A busca sequencial apresenta um crescimento aproximadamente proporcional à medida em que a entrada cresce, passando de aproximadamente 1,7×10⁻⁵ s para n = 5000 para 3,09×10⁻⁵ s para n = 25000, quando sobreposta com a função O(n) observa-se que o comportamento das duas se assemelham, apesar de claras divergências, como n = 5000 ter levado mais tempo do que n = 10000, o que a fez não possuir um comportamento totalmente linear.
 
-Já a busca binária por outro lado apresenta tempos muitos baixos com variações pouco significativas, mantendo-se na ordem de 10⁻⁸ segundos ao longo dos diferentes tamanhos de entrada. Tal comportamento está de acordo com sua complexidade teórica de O(log n), cujo o crescimento se dá de maneira bem lenta, e que na prática pode se aproximar de uma constante dentro da faixa de valores de entrada analisada.
+Já a busca binária por outro lado apresenta tempos muitos baixos com variações pouco significativas, mantendo-se na ordem de 10⁻⁸ segundos ao longo dos diferentes tamanhos de entrada. Tal comportamento está de acordo com sua complexidade teórica de O(log n), cujo o crescimento se dá de maneira bem lenta, e que na prática pode se aproximar de uma constante dentro da faixa de valores de entrada analisada. O comportamento teoricamente conforme fica ainda mais evidente ao sobrepor a função O(log n) no gráfico, onde a curva teórica e os resultados empíricos tornam-se quase indistinguíveis entre si sem ampliação da imagem.
 
 #### Médio caso:
 ![Médio Caso - Algoritmos de Busca](./assets/imagens/Figure_2.png)
 
-No caso médio, o comportamento dos algoritmos novamente se diferem entre si. 
+No caso médio, o comportamento dos algoritmos novamente se diferem entre si.
 
-A busca sequencial apresenta novamente crescimento com o aumento do tamanho da entrada, ainda que de forma menos acentuada em comparação ao pior caso. Por exemplo, os tempos variam de aproximadamente 6,14×10⁻⁶ segundos para n = 5000 para cerca de 6,41×10⁻⁶ segundos para n = 25000, indicando um crescimento proporcional ao tamanho da entrada.
+A busca sequencial, testada com vetores aleatórios de tamanho n, sem ordenação e alvo também aleatório, apresenta novamente crescimento com o aumento do tamanho da entrada, ainda que de forma menos acentuada em comparação ao pior caso. Por exemplo, os tempos variam de aproximadamente 6,14×10⁻⁶ segundos para n = 5000 para cerca de 6,41×10⁻⁶ segundos para n = 25000, indicando um crescimento de baixa magnitude.
 
-Esse comportamento está de acordo com a análise teórica, uma vez que, em média, a busca sequencial percorre uma fração significativa do vetor até encontrar o elemento, mantendo complexidade O(n), embora com menor custo em relação ao pior caso.
+Esse comportamento, embora pouco perceptível graficamente devido à escala dos valores e ao ruído experimental, ainda é compatível com a análise teórica, uma vez que, em média, a busca sequencial percorre uma fração significativa do vetor até encontrar o elemento, resultando em complexidade O(n), porém com menor custo constante em relação ao pior caso.
 
-Já a busca binária, se mantém com tempos extremamente baixos e com pouca variação, comportamento novamente compatível com a complexidade O(log n).
+Já a busca binária, se mantém com tempos extremamente baixos e com pouca variação, comportamento novamente compatível com a complexidade O(log n), sendo refletido no gráfico na forte proximidade entre os valores obtidos e a função teórica O(log n).
 
 ### Algoritmos de Ordenação
 O insertion sort é um algoritmo de ordenação simples que funciona inserindo iterativamente cada elemento de uma lista não ordenada em sua posição correta na parte ordenada da lista.
@@ -59,16 +59,16 @@ O algoritmo insertion sort possui complexidade de O(n) no seu melhor caso (vetor
 #### Melhor caso:
 ![Melhor Caso - Algoritmos de Ordenação](./assets/imagens/Figure_4.png)
 
-No gráfico de melhor caso observa-se que o merge sort aparenta um crescimento significativo, enquanto o insertion sort aparenta tempos constantes, porém se for feito a análise dos dados nota-se que também há crescimento no insertion sort, embora muito mais suave quando comparado ao merge. Seus tempos passam de 1,72×10⁻⁵ s para 9,30×10⁻⁵ s, o que é consistente com a complexidade linear teórica de O(n). 
+No gráfico de melhor caso observa-se que o merge sort aparenta um crescimento significativo, enquanto o insertion sort aparenta tempos constantes, porém se for feito a análise dos dados nota-se que também há crescimento no insertion sort, embora muito mais suave quando comparado ao merge. Seus tempos passam de 1,72×10⁻⁵ s para 9,30×10⁻⁵ s, o que é consistente com a complexidade linear teórica de O(n) e que é praticamente indistinguível da curva teórica de O(n). 
 
-Já o merge sort, apresenta uma taxa de crescimento compatível com a complexidade O(n log n), indo de 3,45×10⁻⁴ s para 2,01×10⁻³ s.
+Já o merge sort, apresenta uma taxa de crescimento compatível com a complexidade O(n log n), indo de 3,45×10⁻⁴ s para 2,01×10⁻³ s e também se aproxima da função O(n log n) a ponto de ficarem quase sobrepostas.
 
 #### Pior caso:
 ![Pior Caso - Algoritmos de Ordenação](./assets/imagens/Figure_6.png)
 
 No pior caso se observa o inverso do que acontece no melhor caso, pois enquanto o insertion cresce significativamente, o merge sort aparenta tempos constantes.
 
-O insertion sort sai de 0,038 s em n = 5000 para 0,951 s em n = 25000, ou seja, um aumento aproximado de 25 vezes, para apenas 5 vezes mais elementos, o que é compatível com a complexidade de pior caso O(n²).
+O insertion sort sai de 0,038 s em n = 5000 para 0,951 s em n = 25000, ou seja, um aumento aproximado de 25 vezes, para apenas 5 vezes mais elementos, o que é compatível com a complexidade de pior caso O(n²) como mostra a sobreposição da sua função.
 
 Já o merge sort continua apresentando um comportamento que está de acordo com a complexidade O(n log n).
 
@@ -80,10 +80,10 @@ No caso médio, observa-se um comportamento semelhante ao pior caso para o inser
 Por outro lado, o merge sort mantém um crescimento mais controlado, com tempos variando de aproximadamente 6,21×10⁻⁴ s para n = 5000 até cerca de 3,68×10⁻³ s para n = 25000. Esse comportamento é consistente com a complexidade O(n log n), evidenciando sua maior eficiência em comparação ao insertion sort para entradas maiores.
 
 ## Conclusão
-Os resultados obtidos nesse estudo empírico confirmam, de forma consistente, as complexidades teóricas esperadas para os algoritmos analisados.
+Os resultados obtidos nesse estudo empírico confirmam as complexidades teóricas esperadas para os algoritmos analisados. Sendo que os algoritmos que mais se aproximaram de suas curvas teóricas foram o algoritmo de busca binária (pior e médio caso) e os dois algoritmos de ordenação estudados.
 
 ### Algoritmos de Busca
-Os resultados encontrados evidenciam que, para entradas ordenadas e suficientemente grandes, a busca binária é drasticamente superior à sequencial, com alto ganho de desempenho que conseguem chegar a duas ordens de grandeza no pior caso.
+Para os algoritmos de busca, os resultados encontrados evidenciam que, para entradas ordenadas e suficientemente grandes, a busca binária é drasticamente superior à sequencial, com alto ganho de desempenho que conseguem chegar a duas ordens de grandeza no pior caso.
 
 ### Algoritmos de Ordenação
-Os resultados demostram que o insertion sort é altamente sensível à ordem inicial dos dados, apresentando desempenho linear no melhor caso, e desempenho abismal no pior e médio caso, o merge sort, entretanto, mantém comportamento estável independente da organização inicial dos elementos.
+Já os algoritmos de ordenação, os resultados demostraram que o insertion sort é altamente sensível à ordem inicial dos dados, apresentando desempenho linear no melhor caso, e desempenho abismal no pior e médio caso, o merge sort, entretanto, mantém comportamento estável independente da organização inicial dos elementos.
