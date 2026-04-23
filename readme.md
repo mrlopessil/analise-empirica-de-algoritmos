@@ -16,6 +16,10 @@ Para a medição de desempenho, foi utilizada a biblioteca **chrono**, responsá
 
 ## Resultados
 ### Algoritmos de Busca
+A busca sequencial, também conhecida como busca linear, é o método mais simples e direto para encontrar um elemento dentro de uma estrutura de dados. Ela funciona examinando cada elemento, um por um, na ordem em que aparecem. 
+
+Já a busca binária é um método extremamente eficiente para encotrar um elemento específico dentro de uma estrutura de dados ordenada. Ela funciona dividindo repetidamente o conjunto de dados ao meio, comparando o valor alvo com o elemento central, eliminando metade das possibilidades a cada passo.
+
 A análise teórica de complexidade da busca binária e da busca sequencial aponta que no pior caso esses algoritmos possuem complexidade de O(log n) e O(n) respectivamente, enquanto ambas possuem mesma complexidade de melhor caso: O(1), pois o elemento é encontrado já na primeira verificação.
 
 #### Melhor caso:
@@ -46,6 +50,10 @@ Esse comportamento está de acordo com a análise teórica, uma vez que, em méd
 Já a busca binária, se mantém com tempos extremamente baixos e com pouca variação, comportamento novamente compatível com a complexidade O(log n).
 
 ### Algoritmos de Ordenação
+O insertion sort é um algoritmo de ordenação simples que funciona inserindo iterativamente cada elemento de uma lista não ordenada em sua posição correta na parte ordenada da lista.
+
+O merge sort é um algoritmo de ordenação eficiente e estável. Ele funciona dividindo recursivamente a lista de entrada em duas metades, recursivamente ordenando as duas metades e finalmente mesclando-as novamente para obter a lista ordenada.
+
 O algoritmo insertion sort possui complexidade de O(n) no seu melhor caso (vetor já ordenado) e complexidade O(n²) no seu médio e pior caso. Já o algoritmo de merge sort, possui complexidade (n log n) em qualquer caso.
 
 #### Melhor caso:
@@ -78,4 +86,4 @@ Os resultados obtidos nesse estudo empírico confirmam, de forma consistente, as
 Os resultados encontrados evidenciam que, para entradas ordenadas e suficientemente grandes, a busca binária é drasticamente superior à sequencial, com alto ganho de desempenho que conseguem chegar a duas ordens de grandeza no pior caso.
 
 ### Algoritmos de Ordenação
-Os resultados demostram que o insertion sort é altamente sensível à ordem inicial dos dados, apresentando desempenho linear no melhor dos casos, e desempenho abismal no pior e médio caso, o merge sort, entretanto, mantém comportamento estável independente da organização inicial dos elementos.
+Os resultados demostram que o insertion sort é altamente sensível à ordem inicial dos dados, apresentando desempenho linear no melhor caso, e desempenho abismal no pior e médio caso, o merge sort, entretanto, mantém comportamento estável independente da organização inicial dos elementos.
