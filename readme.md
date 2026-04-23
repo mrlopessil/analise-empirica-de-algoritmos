@@ -78,4 +78,4 @@ Os resultados obtidos nesse estudo empírico confirmam, de forma consistente, as
 Os resultados encontrados evidenciam que, para entradas ordenadas e suficientemente grandes, a busca binária é drasticamente superior à sequencial, com alto ganho de desempenho que conseguem chegar a duas ordens de grandeza no pior caso.
 
 ### Algoritmos de Ordenação
-Os resultados demostram que o insertion sort é altamente sensível à ordem inicial dos dados, apresentando desempenho linear no melhor dos casos, e desempenho abissal no pior e médio caso, o merge sort, entretanto, mantém comportamento estável independente da organização inicial dos elementos.
+Os resultados demostram que o insertion sort é altamente sensível à ordem inicial dos dados, apresentando desempenho linear no melhor dos casos, e desempenho abismal no pior e médio caso, o merge sort, entretanto, mantém comportamento estável independente da organização inicial dos elementos.
